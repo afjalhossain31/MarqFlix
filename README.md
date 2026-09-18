@@ -1,4 +1,4 @@
-# 🎬 Marquee — Movie Explorer
+# 🎬 MarqFlix — Movie Explorer
 
 A responsive Movie Explorer built with React, Tailwind CSS, and the [TVMaze API](https://www.tvmaze.com/api). Browse shows, search by title, and open a details modal with rating, genres, cast, and synopsis.
 
