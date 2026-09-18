@@ -13,7 +13,7 @@ export default function Navbar() {
             className="text-2xl tracking-wide text-cream"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Marquee
+            MarqFlix
           </span>
         </Link>
 
