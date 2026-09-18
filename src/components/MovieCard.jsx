@@ -7,37 +7,42 @@ export default function MovieCard({ show, onSelect }) {
   const rating = show.rating?.average;
 
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-sm bg-surface ring-1 ring-white/5 transition-transform duration-200 hover:-translate-y-1 hover:ring-gold/40">
-      <div className="relative aspect-[2/3] w-full overflow-hidden bg-surface-raised">
+    <article className="group relative flex flex-col overflow-hidden rounded-2xl bg-[#1e1e1e] border border-white/5 transition-all duration-300 hover:-translate-y-2 hover:border-red-600/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)]">
+      <div className="relative aspect-[2/3] w-full overflow-hidden bg-[#141414]">
         {poster ? (
           <img
             src={poster}
             alt={`${show.name} poster`}
             loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center text-muted">
+          <div className="flex h-full w-full items-center justify-center text-gray-500">
             No poster
           </div>
         )}
 
+        {/* Subtle Dark Overlay at the bottom of the image */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1e1e1e] via-transparent to-transparent opacity-80" />
+
         {rating ? (
-          <div className="absolute right-0 top-3 flex items-center gap-1 rounded-l-sm bg-ink/90 py-1 pl-3 pr-2 text-sm font-semibold text-gold-soft">
+          <div className="absolute right-3 top-3 flex items-center gap-1 rounded-md bg-black/60 px-2.5 py-1 text-sm font-bold text-yellow-500 backdrop-blur-md">
             ⭐ {rating}
           </div>
         ) : null}
       </div>
 
-      <div className="flex flex-1 flex-col gap-2 p-4">
-        <h3 className="line-clamp-2 text-base font-semibold text-cream">
-          {show.name}
-        </h3>
-        <p className="text-sm text-muted">📅 {year(show.premiered)}</p>
+      <div className="relative z-10 flex flex-1 flex-col gap-3 p-5">
+        <div>
+          <h3 className="line-clamp-2 text-lg font-bold text-white transition-colors group-hover:text-red-400">
+            {show.name}
+          </h3>
+          <p className="mt-1 text-sm text-gray-400">📅 {year(show.premiered)}</p>
+        </div>
 
         <button
           onClick={() => onSelect(show.id)}
-          className="focus-ring mt-auto rounded-sm border border-gold/40 py-2 text-sm font-medium text-gold-soft transition-colors hover:bg-gold hover:text-ink"
+          className="mt-auto w-full rounded-full border border-red-600/30 bg-red-600/10 py-2.5 text-sm font-bold text-white transition-all duration-300 hover:scale-[1.02] hover:border-red-600 hover:bg-red-600 hover:shadow-[0_0_15px_rgba(220,38,38,0.4)]"
         >
           See Details
         </button>
