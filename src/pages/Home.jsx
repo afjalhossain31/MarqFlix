@@ -1,4 +1,5 @@
 import Hero from "../components/Hero";
+import TrendingMarqFlix from "../components/TrendingMarqFlix";
 import { Link } from "react-router-dom";
 
 const HIGHLIGHTS = [
@@ -24,6 +25,7 @@ export default function Home() {
     <div className="min-h-screen bg-[#141414]">
       {/* Hero Section */}
       <Hero />
+      <TrendingMarqFlix />
 
       <section className="mx-auto max-w-7xl px-6 py-24 sm:px-8">
         

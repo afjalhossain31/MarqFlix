@@ -3,24 +3,22 @@ function year(dateStr) {
 }
 
 export default function MovieCard({ show, onSelect }) {
-  const poster = show.image?.medium || show.image?.original;
+  // Jodi API theke kono image na ashe, tahole ei default placeholder image ti dekhabe
+  const fallbackImage = "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=400&auto=format&fit=crop";
+  const poster = show.image?.medium || show.image?.original || fallbackImage;
   const rating = show.rating?.average;
 
   return (
     <article className="group relative flex flex-col overflow-hidden rounded-2xl bg-[#1e1e1e] border border-white/5 transition-all duration-300 hover:-translate-y-2 hover:border-red-600/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)]">
       <div className="relative aspect-[2/3] w-full overflow-hidden bg-[#141414]">
-        {poster ? (
-          <img
-            src={poster}
-            alt={`${show.name} poster`}
-            loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-        ) : (
-          <div className="flex h-full w-full items-center justify-center text-gray-500">
-            No poster
-          </div>
-        )}
+        
+        {/* Poster Image (API theke asha image ba Default image) */}
+        <img
+          src={poster}
+          alt={`${show.name} poster`}
+          loading="lazy"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
 
         {/* Subtle Dark Overlay at the bottom of the image */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#1e1e1e] via-transparent to-transparent opacity-80" />

@@ -59,3 +59,16 @@ body {
   background-color: var(--color-marquee-dim);
   border-radius: 4px;
 }
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-scroll {
+  /* 40s হলো স্পিড, চাইলে বাড়াতে/কমাতে পারেন */
+  animation: scroll 40s linear infinite; 
+}
+.animate-scroll:hover {
+  /* মাউস রাখলে স্ক্রলিং থেমে যাবে */
+  animation-play-state: paused;
+}
